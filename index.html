@@ -18,10 +18,23 @@
     <meta property="og:image" content="img/IMG-20250917-WA0015.jpg">
     <meta property="og:url" content="https://segurancadigitalinfantil.com.br">
     <meta property="og:type" content="website">
-<!-- Event snippet for Contato pelo whats conversion page -->
+<!-- Event snippet for Contato pelo whats conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
 <script>
-  gtag('event', 'conversion', {'send_to': 'AW-977753308/13l2CKfF-YoDENypndID'});
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-977753308/13l2CKfF-YoDENypndID',
+      'event_callback': callback
+  });
+  return false;
+}
 </script>
+
 
 
 </head>
@@ -280,13 +293,13 @@
             <span class="old-price">R$ 19,900</span>
             R$ 9,90
         </p>
-        <a href="https://pay.kiwify.com.br/rX31aH4" class="cta-button">Quero Proteger Meus Filhos Agora!</a>
+        <a href="https://pay.kiwify.com.br/rX31aH4" class="cta-button" onclick="gtag_report_conversion()">Quero Proteger Meus Filhos Agora!</a>
         <p><em>Esta oferta é válida somente até sexta, 19/09/25 às 14h.</em></p>
     </div>
 
 </div>
 
-<a href="https://pay.kiwify.com.br/rX31aH4" class="cta-button floating-cta">
+<a href="https://pay.kiwify.com.br/rX31aH4" class="cta-button floating-cta" onclick="gtag_report_conversion()">
     Comprar Agora
 </a>
 
